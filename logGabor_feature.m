@@ -1,8 +1,8 @@
-function gf  = logGabor(img_input)
+function gf  = logGabor_feature(img_input)
 
-  gf = logGabor_feature(img_input);
+  gf = logGabor(img_input);
   
-function   D= logGabor_feature(im)
+function   D= logGabor(im)
 num_scale =3 ;   
 num_orien =10;   
 minWaveLength =3;   
