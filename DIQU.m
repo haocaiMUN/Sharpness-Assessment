@@ -1,8 +1,8 @@
-function gf  = DIQU(img_deblurred)
-%% Frequency Domain Feature -- log-Gabor 
-  gf = frequency_feature(img_deblurred);
+function gf  = logGabor(img_input)
+
+  gf = logGabor_feature(img_input);
   
-function   D= frequency_feature(im)
+function   D= logGabor_feature(im)
 num_scale =3 ;   
 num_orien =10;   
 minWaveLength =3;   
