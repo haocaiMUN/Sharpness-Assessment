@@ -1,0 +1,34 @@
+function SPARISH = SPARISH(img,Dic,L,x)
+
+if (~exist('L'))
+   L=6;
+end
+
+if (~exist('x'))
+   x=0.6;
+end
+
+
+[img_blk,var_blk]=blocks(img);
+
+
+%% ===== sequence ========
+[rows,cols] = size(img_blk);
+temp = zeros(rows,cols);
+temp(1,:) = var_blk;
+temp(2:rows+1,:) = img_blk;
+
+
+sort_temp = sortrows(temp',-1);
+sort = sort_temp';
+%% ========================
+
+select_nums = floor(x*cols);
+select_var_blk = sort(1,1:select_nums);
+select_img_blk = sort(2:rows+1,1:select_nums);
+
+sr = OMP(Dic,select_img_blk,L);
+sr = full(sr);
+energy_img_blk = sum(sr.*sr);
+
+SPARISH = sum(energy_img_blk)/sum(select_var_blk);
