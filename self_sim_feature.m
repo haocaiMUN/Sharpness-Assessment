@@ -1,4 +1,4 @@
-function self_sim_feature = block_sim_feature(image)
+function block_sim_feature = self_sim_feature(image)
 
 res_num = 5; %original image + 4 downsampled images, which means 4 self-similarities.
 rb = 2^res_num;
