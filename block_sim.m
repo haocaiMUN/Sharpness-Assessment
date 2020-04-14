@@ -1,4 +1,4 @@
-function score = block_sim(image)
+function block_sim_feature = block_sim(image)
 
 res_num = 5; %original image + 4 downsampled images, which means 4 self-similarities.
 rb = 2^res_num;
@@ -47,7 +47,7 @@ for tt=1:res_num
 end
 
 for i=1:res_num-1
-    score(1,i) = sum(sqrt(abs(feat(1,:)-feat(i+1,:))))/length(feat(i+1,:));
+    block_sim_feature(1,i) = sum(sqrt(abs(feat(1,:)-feat(i+1,:))))/length(feat(i+1,:));
 
 end
 
